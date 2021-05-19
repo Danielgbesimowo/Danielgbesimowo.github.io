@@ -1,0 +1,272 @@
+<html>
+  <head>
+    <title>Eye Simul</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+    
+      @font-face {
+        font-family:Pop;
+        src:url('/storage/sdcard0/Poppins-Regular.ttf') format('TrueType');
+      }
+      
+      
+      *{font-family: Pop;}
+      
+      /* header */
+      header{background-color:#69f;
+      border-radius:2px;}
+      
+      header h1{
+      font-size:1.5rem;
+      text-align:center;
+      color:white;
+      }
+      
+      
+      
+      
+      /* Eye */
+      .container{
+        margin:auto;
+        background-color:rgb(205,205,205);
+        border-radius:2px;
+        height:200px;
+        position:relative;
+        display: flex;
+      }
+      
+      .container .eye1{height:60px;
+        width:150px;
+        background-color:white;
+        position:relative;
+        border-radius:100%;
+        top:calc((100% - 60px)/2);
+        left:calc((100% - 150px)/12);}
+       .eye1 .brown{
+        height:55px;
+        width:55px;
+        border-radius: 100%;
+        position: relative;
+        background-color:rgb(90,0,0);
+        top:calc((100% - 55px)/2);
+        left:calc((100% - 55px)/2);
+       }
+       .black{
+         height:25px;
+         width:25px;
+         border-radius: 100%;
+         position:absolute;
+         background-color: black;
+         top:calc((100% - 25px)/2);
+         left:calc((100% - 25px)/9);
+       }
+        
+       .container .eye2{height:60px;
+       width:150px;
+       background-color:white;
+       position:relative;
+       border-radius:100%;
+       top:calc((100% - 60px)/2);
+       left:calc((100% - 150px)/6);}
+       
+       .eye2 .brown{
+       height:55px;
+       width:55px;
+       border-radius: 100%;
+       position: relative;
+       background-color:rgb(90,0,0);
+       top:calc((100% - 55px)/2);
+       left:calc((100% - 55px)/2);
+     
+       }
+       .brown{box-shadow:0 0 10px gray;}
+       .black{
+       height:25px;
+       width:25px;
+       border-radius: 100%;
+       position:absolute;
+       background-color: black;
+       top:calc((100% - 25px)/2);
+       left:calc((100% - 25px)/2);
+       }
+       
+       
+    /* Gesture */    
+     .gestures{
+       
+       margin-top:20px;
+       box-shadow:0 0 10px gray;
+       border-radius: 3px;}
+       
+     .gestures a{
+        border-radius: 2px ;
+        padding: 2px 3px;
+        margin:3px;
+        display:block;
+        background-color:white;
+        color:#ee3e80;
+        box-shadow:0 0 5px skyblue;
+        text-align: center;}
+        
+      .gestures a:hover{
+        background-color:#ee3e80;
+        color:white;
+        font-weight:bold;
+      }
+     
+      p{text-align:center;}
+      
+      
+      td{width:200px;}
+      
+    </style>
+  </head>
+  <body>
+    <header>
+     <h1>
+      Eye  Simulator
+     </h1>
+    </header>
+     <div class="container">
+     
+          <div class="eye1">
+             <div id="eye_1" class="brown">
+                <div class="black">
+                </div>
+             </div>
+          </div>
+         
+         <div class="eye2">
+             <div id="eye_2" class="brown">
+               <div class="black">
+               </div>
+             </div>
+         </div>
+     </div>
+    
+    
+     <div class="gestures">
+
+       <p> Gestures</p>
+       <a>Normal</a>
+       <table>
+         <tr>
+           <td><a>Look Up</a></td>
+           <td><a>Look Down</a></td>
+         </tr>
+         <tr>
+           <td><a>Look Left</a></td>
+           <td><a>Look Right</a></td>
+         </tr>
+         <tr>
+           <td><a>Top left edge</a></td>
+           <td><a>Top right edge </a></td>
+         </tr>
+         <tr>
+           <td><a>Bottom left edge</a></td>
+           <td><a>Bottom right edge</a></td>
+         </tr>
+      </table>
+     </div>
+  </body>
+  
+   <script>
+      var a,fisrt_eye,sec_eye;
+      a=document.getElementsByTagName("a");
+      first_eye=document.getElementById("eye_1");
+      sec_eye=document.getElementById("eye_2");
+      
+      
+      
+      function normal(){
+     
+      }
+      
+      
+      function look_left(){
+        first_eye.style=sec_eye.style="transform:translateX(-60%) scale(0.9) rotateY(-30deg);"+
+                      "transition-name:transform;"+
+                      "transition-duration:0.3s;"+
+                      "transition-delay:0s;"+
+                      "transition-timing-function:linear;";
+       
+      }
+      
+      function look_right(){
+         first_eye.style=sec_eye.style="transform:translateX(60%) scale(0.85) rotateY(30deg);"+
+                      "transition-name:transform;"+
+                      "transition-duration:0.3s;"+
+                      "transition-delay:0s;"+
+                      "transition-timing-function:linear;";
+      }
+      
+      function look_up(){
+         first_eye.style=sec_eye.style="transform:translateY(-20%) scale(0.85) rotateX(-35deg);"+
+                        "transition-name:transform;"+
+                        "transition-duration:0.3s;"+
+                        "transition-delay:0s;"+
+                        "transition-timing-function:linear;";
+        
+      }
+      
+      function look_down(){
+         first_eye.style=sec_eye.style="transform:translateY(20%) scale(0.85) rotateX(35deg);"+
+                       "transition-name:transform;"+
+                       "transition-duration:0.3s;"+
+                       "transition-delay:0s;"+
+                       "transition-timing-function:linear;";
+      }
+      
+      function normal(){
+         first_eye.style=sec_eye.style="transform:translateY(-5%) scale(0.8) "+
+                     "transition-name:transform;"+
+                     "transition-duration:0.3s;"+
+                     "transition-delay:0s;"+
+                     "transition-timing-function:linear;";
+      }
+      
+      function ble(){
+           first_eye.style=sec_eye.style="transform:translateX(-50%) scale(0.88) rotateY(-30deg) rotateX(-35deg);"+
+                            "transition-name:transform;"+
+                            "transition-duration:0.3s;"+
+                            "transition-delay:0s;"+
+                            "transition-timing-function:linear;";
+      }
+      
+      
+      function bre(){
+           first_eye.style=sec_eye.style="transform:translateX(50%) scale(0.88) rotateY(30deg) rotateX(-35deg);"+
+                          "transition-name:transform;"+
+                          "transition-duration:0.3s;"+
+                          "transition-delay:0s;"+
+                          "transition-timing-function:linear;";
+      }
+      
+      function tle(){
+          first_eye.style=sec_eye.style="transform:translateX(-50%) scale(0.88) rotateY(-30deg) rotateX(35deg);"+
+          "transition-name:transform;"+
+          "transition-duration:0.3s;"+
+          "transition-delay:0s;"+
+          "transition-timing-function:linear;";
+      }
+      
+      
+      function tre(){
+         first_eye.style=sec_eye.style="transform:translateX(50%) scale(0.88) rotateY(30deg) rotateX(35deg);"+
+                        "transition-name:transform;"+
+                        "transition-duration:0.3s;"+
+                        "transition-delay:0s;"+
+                        "transition-timing-function:linear;";
+      }
+      a[0].addEventListener("click",normal,false);
+      a[1].addEventListener("click",look_up,false);
+      a[2].addEventListener("click",look_down,false);
+      a[3].addEventListener("click",look_left,false);
+      a[4].addEventListener("click",look_right,false);
+      a[5].addEventListener("click",tle,false);
+      a[6].addEventListener("click",tre,false);
+      a[7].addEventListener("click",ble,false);
+      a[8].addEventListener("click",bre,false);
+   </script>
+</html>
